@@ -39,8 +39,6 @@ class BuildingsController < ApplicationController
 
   # PATCH/PUT /buildings/1 or /buildings/1.json
   def update
-    @stations = @building.stations
-    @stations.destroy_all
     respond_to do |format|
       if @building.update(building_params)
         format.html { redirect_to @building, notice: "Building was successfully updated." }
@@ -72,7 +70,7 @@ class BuildingsController < ApplicationController
       params.require(:building).permit(
         :name, :rent, :address, :age, :note,
         stations_attributes: [
-          :railway, :name, :walking_time, :building_id
+          :id, :railway, :name, :walking_time, :building_id
           ]
         )
     end
