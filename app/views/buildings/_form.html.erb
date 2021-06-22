@@ -36,14 +36,16 @@
     <%= form.text_area :note %>
   </div>
   <br>
-
-    <%= form.fields_for :stations do |s| %>
-      <%= s.label :railway %>
-      <%= s.text_field :railway %>
-      <%= s.label :name %>
-      <%= s.text_field :name %>
-      <%= s.label :walking_time %>
-      <%= s.text_field :walking_time %>
+  <% station_number = 1 %>
+  <%= form.fields_for :stations do |s| %>
+  <h2><%= "Station#{station_number}" %></h2>
+    <%= s.label :railway %>
+    <%= s.text_field :railway %>
+    <%= s.label :name %>
+    <%= s.text_field :name %>
+    <%= s.label :walking_time %>
+    <%= s.text_field :walking_time %>
+    <% station_number += 1 %>
       <br>
       <br>
    <% end %>
