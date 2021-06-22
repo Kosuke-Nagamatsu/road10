@@ -8,6 +8,7 @@ class BuildingsController < ApplicationController
 
   # GET /buildings/1 or /buildings/1.json
   def show
+    @stations = @building.stations
   end
 
   # GET /buildings/new
@@ -18,6 +19,7 @@ class BuildingsController < ApplicationController
 
   # GET /buildings/1/edit
   def edit
+    @building.stations.build
   end
 
   # POST /buildings or /buildings.json
@@ -37,6 +39,8 @@ class BuildingsController < ApplicationController
 
   # PATCH/PUT /buildings/1 or /buildings/1.json
   def update
+    @stations = @building.stations
+    @stations.destroy_all
     respond_to do |format|
       if @building.update(building_params)
         format.html { redirect_to @building, notice: "Building was successfully updated." }

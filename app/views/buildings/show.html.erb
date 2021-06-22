@@ -1,3 +1,4 @@
+<h1>閲覧</h1>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -24,6 +25,26 @@
   <strong>Note:</strong>
   <%= @building.note %>
 </p>
+
+<% i=1 %>
+<% @stations.each do |station| %>
+  <h2><%= "Station#{i}" %></h2>
+  <p>
+    <strong>railway:</strong>
+    <%= station.railway %>
+  </p>
+  <p>
+    <strong>name:</strong>
+    <%= station.name %>
+  </p>
+  <p>
+    <strong>walking_time:</strong>
+    <%= station.walking_time %>
+  </p>
+  <% i += 1 %>
+  <br>
+<% end %>
+
 
 <%= link_to 'Edit', edit_building_path(@building) %> |
 <%= link_to 'Back', buildings_path %>
