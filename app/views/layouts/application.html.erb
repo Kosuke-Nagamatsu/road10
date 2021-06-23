@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <header>
+      <h1>
+      <% if action_name == "index" %>
+      <%= '一覧' %>
+      <% elsif action_name == "show" %>
+      <%= '閲覧' %>
+      <% elsif action_name == "new" %>
+      <%= '登録' %>
+      <% elsif action_name == "edit" %>
+      <%= '編集' %>
+      <% end %>
+      </h1>
+    </header>
     <%= yield %>
   </body>
 </html>
