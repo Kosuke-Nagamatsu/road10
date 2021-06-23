@@ -7,17 +7,16 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <header>
       <% if action_name == "index" %>
-      <h1 class="top-header"><%= '一覧' %></h1>
+        <h1 class="top-header"><%= '一覧' %></h1>
       <% elsif action_name == "show" %>
-      <h1><%= '閲覧' %></h1>
+        <h1><%= '閲覧' %></h1>
       <% elsif action_name == "new" %>
-      <h1><%= '登録' %></h1>
+        <h1><%= '登録' %></h1>
       <% elsif action_name == "edit" %>
-      <h1><%= '編集' %></h1>
+        <h1><%= '編集' %></h1>
       <% end %>
     </header>
     <div class="container">
