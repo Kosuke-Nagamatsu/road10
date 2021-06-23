@@ -2,7 +2,6 @@
   <% if building.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(building.errors.count, "error") %> prohibited this building from being saved:</h2>
-
       <ul>
       <% building.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,50 +9,47 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
-
   <div class="field">
     <%= form.label :rent %>
     <%= form.text_field :rent %><span>円</span>
   </div>
-
   <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address %>
   </div>
-
   <div class="field">
     <%= form.label :age %>
     <%= form.text_field :age %><span>年</span>
   </div>
-
   <div class="field">
     <%= form.label :note %>
     <%= form.text_area :note %>
   </div>
   <br>
-  <% number = 1 %>
-  <%= form.fields_for :stations do |s| %>
-    <h3><%= "最寄り駅#{number}" %></h3>
-    <div class="field">
-      <%= s.label :railway %>
-      <%= s.text_field :railway %>
+  <div class="station-container">
+    <% number = 1 %>
+    <%= form.fields_for :stations do |s| %>
+      <h3><%= "最寄り駅#{number}" %></h3>
+      <div class="field">
+        <%= s.label :railway %>
+        <%= s.text_field :railway %>
+      </div>
+      <div class="field">
+        <%= s.label :name %>
+        <%= s.text_field :name %>
+      </div>
+      <div class="field">
+        <%= s.label :walking_time %>
+        <%= s.text_field :walking_time %>
+      </div>
+      <% number += 1 %>
+    <% end %>
+    <div class="actions">
+      <%= form.submit %>
     </div>
-    <div class="field">
-      <%= s.label :name %>
-      <%= s.text_field :name %>
-    </div>
-    <div class="field">
-      <%= s.label :walking_time %>
-      <%= s.text_field :walking_time %>
-    </div>
-    <% number += 1 %>
-  <% end %>
-  <div class="actions">
-    <%= form.submit %>
   </div>
 <% end %>
