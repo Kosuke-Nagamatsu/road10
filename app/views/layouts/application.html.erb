@@ -10,18 +10,18 @@
 
   <body>
     <header>
-      <h1>
       <% if action_name == "index" %>
-      <%= '一覧' %>
+      <h1 class="top-header"><%= '一覧' %></h1>
       <% elsif action_name == "show" %>
-      <%= '閲覧' %>
+      <h1><%= '閲覧' %></h1>
       <% elsif action_name == "new" %>
-      <%= '登録' %>
+      <h1><%= '登録' %></h1>
       <% elsif action_name == "edit" %>
-      <%= '編集' %>
+      <h1><%= '編集' %></h1>
       <% end %>
-      </h1>
     </header>
+    <div class="container">
     <%= yield %>
+    </div>
   </body>
 </html>
