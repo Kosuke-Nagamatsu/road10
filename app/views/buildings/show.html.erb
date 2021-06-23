@@ -8,7 +8,11 @@
 
 <p>
   <strong>Rent:</strong>
-  <%= @building.rent %>
+  <% if @building.rent.include?(',') %>
+    <%= @building.rent %>
+  <% else %>
+    <%= @building.rent.chars.reverse.each_slice(3).map(&:join).join(',').reverse %>
+  <% end %>
 </p>
 
 <p>

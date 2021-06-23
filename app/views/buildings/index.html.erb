@@ -18,7 +18,14 @@
     <% @buildings.each do |building| %>
       <tr>
         <td><%= building.name %></td>
-        <td><%= building.rent %><span>円</span></td>
+        <td>
+          <% if building.rent.include?(',') %>
+            <%= building.rent %>
+          <% else %>
+            <%= building.rent.chars.reverse.each_slice(3).map(&:join).join(',').reverse %>
+          <% end %>
+          <span>円</span>
+        </td>
         <td><%= building.address %></td>
         <td><%= building.age %><span>年</span></td>
         <td><%= building.note %></td>
