@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  railway: MyString
+  name: MyString
+  walking_time: MyString
+  building: one
+
+two:
+  railway: MyString
+  name: MyString
+  walking_time: MyString
+  building: two
